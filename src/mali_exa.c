@@ -32,7 +32,10 @@
 #include "mali_def.h"
 #include "mali_fbdev.h"
 #include "mali_exa.h"
-#include "umplock/umplock_ioctl.h"
+
+#if UMP_LOCK_ENABLED
+#include "umplock_ioctl.h"
+#endif
 
 #define MALI_EXA_FUNC(s) exa->s = mali ## s
 #define MALI_ALIGN( value, base ) (((value) + ((base) - 1)) & ~((base) - 1))
